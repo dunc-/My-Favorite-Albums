@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact Me</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/portfolio-item.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--Navigation header-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <!--For mobile displays-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">My Favorite Albums</a>
+            </div>
+
+            <!--Get all of the links up there-->
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">Albums</a>
+                    </li>
+                    <li>
+                        <a href="reasoning.html">Reasoning</a>
+                    </li>
+                    <li class="active">
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Contact Me</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <form role="form" action="" method="post">
+                    <div class="col-lg-6">
+
+                        <!--Input for name-->
+                        <div class="form-group">
+                            <label for="InputName">Your Name</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Enter Name" required>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+                            </div>
+                        </div>
+
+                        <!--Input for email-->
+                        <div class="form-group">
+                            <label for="InputEmail">Your Email</label>
+                            <div class="input-group">
+                                <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Enter Email" required>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputMessage">Message</label>
+                            <div class="input-group">
+                                <textarea name="InputMessage" id="InputMessage" class="form-control" placeholder="Type your message here..." rows="5" required></textarea>
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
+                            </div>
+                        </div>
+                        <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
+                    </div>
+                </form>
+                <hr class="featurette-divider hidden-lg">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

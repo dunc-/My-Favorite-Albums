@@ -1,0 +1,424 @@
+<!--To Write:
+
+    angular to create a search box with the albums that updates as you search-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Favorite Albums</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/portfolio-item.css" rel="stylesheet">
+</head>
+
+<body ng-app="mainApp" ng-controller="EventCtrl as event">
+
+    <!--Navigation header-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <!--For mobile displays-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">{{::event.title}}</a>
+            </div>
+
+            <!--Get all of the links up there-->
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li ng-click="setIndex(0)" ng-class="(index==0) ? 'active' : ''">
+                        <a href="#">{{event.menu[0].name}}</a>
+                    </li>
+                    <li ng-click="setIndex(1)" ng-class="(index==1) ? 'active' : ''">
+                        <a href="#">{{event.menu[1].name}}</a>
+                    </li>
+                    <li ng-click="setIndex(2)" ng-class="(index==2) ? 'active' : ''">
+                        <a href="#">{{event.menu[2].name}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Actual Page Content-->
+    <div class="container-fluid">
+        <!--Heading of the group of albums with the featured album-->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Today's Featured Album
+                    <small id="date"></small>
+                    <script type="text/javascript">
+                        var d = new Date();
+                        document.getElementById("date").innerHTML = "As of ".small() + d.toUTCString().small();
+                    </script>
+                </h1>
+            </div>
+        </div>
+
+        <!--Featured Album-->
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-responsive" src="./assets/img/Weezer - Weezer.jpg" width="500" height="500">
+            </div>
+            <div class="col-md-3">
+                <h3>Weezer - Weezer</h3>
+                <p>
+                    Weezer, a nerdy four-piece rock outfit, had been performing in the local Los Angeles area for 2 and a half years before the release of their debut album.
+                    Surprisingly, the majority of their songs which would go on to become hits found little to no success with the crowds.
+                    Luckily for the group, Geffen Records caught on to their potential and signed them to a one record deal. Produced by Ric
+                    Ocasek of the Cars, The Blue Album defined what words like "alternative rock" and "power pop" meant in the post punk era.
+                    The lyrics on each song are genuine, but were largely ignored by fans. Fans chose instead to focus on Rivers Cuomo's guitar
+                    riffs and Patrick Wilson's energetic drum style. Weezer's sound found a niche because of its background vocals; three of the
+                    four members of the band (Rivers Cuomo, Brian Bell, and Matt Sharp) sang on the record, with Sharp's falsetto standing out
+                    in almost every song. The record has sold over 3.3 million copies, and still stands as a staple of 90's rock.
+                </p>
+            </div>
+        </div>
+        <!--All of the albums-->
+
+        <script type="text/javascript" src="./assets/js/hoverScript.js"></script>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 class="page-header">
+                    Other Albums
+                    <small>(in no particular order)</small>
+                </h3>
+            </div>
+
+            <!--QOTSA - ...LIKE CLOCKWORK-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/...like clockwork.jpg" width="230" height="230" alt="">
+                </a>
+                <div>
+                    <h4>...Like Clockwork</h4>
+                    <p>Queens of the Stone Age</p>
+                </div>
+            </div>
+
+            <!--Arctic Monkeys - WPSIATWIN-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/Arctic Monkeys - Whatever People Say I Am, That's What I'm Not.png" width="230" height="230" alt="">
+                </a>
+                <div>
+                    <h4>Whatever People Say I Am, That's What I'm Not</h4>
+                    <p>Arctic Monkeys</p>
+                </div>
+            </div>
+
+            <!--RTJ2-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/rtj2.jpg" width="230" height="230" alt="">
+                </a>
+                <div>
+                    <h4>Run the Jewels 2</h4>
+                    <p>Run the Jewels</p>
+                </div>
+            </div>
+
+            <!--Bejnamin Booker-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/benjamin Booker - Benjamin Booker.jpg" width="230" height="230" alt="">
+                </a>
+                <div>
+                    <h4>Benjamin Booker</h4>
+                    <p>Benjamin Booker</p>
+                </div>
+            </div>
+
+            <!--Acid Rap-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/chance the rapper - acid rap alt.gif" width="230" height="230" alt="">
+                </a>
+                <div>
+                    <h4>Acid Rap</h4>
+                    <p>Chance the Rapper</p>
+                </div>
+            </div>
+
+            <!--Deja Vu-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/CSNY - Deja Vu.jpg" width="230" height="230" alt="">
+                </a>
+                <div>
+                    <h4>Deja Vu</h4>
+                    <p>Crosby, Stills, Nash, &Aacute; Young</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <!--fun.-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/fun. - Aim and Ignite.jpg" width="230" height="230" alt="">
+                </a>
+                <div>
+                    <h4>Aim and Ignite</h4>
+                    <p>fun.</p>
+                </div>
+            </div>
+
+            <!--The College Dropout-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/Kanye West - The College Dropout.jpg" width="230" height="230" alt="">
+                </a>
+                <div>
+                    <h4>The College Dropout</h4>
+                    <p>Kanye West</p>
+                </div>
+            </div>
+
+            <!--Johnny Cash-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/Johnny Cash - At Folsom Prison.jpg" width="230" height="230" alt="">
+                </a>
+                <div>
+                    <h4>At Folsom Prison</h4>
+                    <p>Johnny Cash</p>
+                </div>
+            </div>
+
+            <!--lips-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/The Flaming Lips - Yoshimi Battles The Pink Robots.jpeg" width="230" height="230" alt="">
+                </a>
+                <div>
+                    <h4>Yoshimi Battles The Pink Robots</h4>
+                    <p>The Flaming Lips</p>
+                </div>
+            </div>
+
+            <!--marvin-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/marvin gaye - what's going on.jpg" width="230" height="230" alt="">
+                </a>
+                <div>
+                    <h4>What's Going On</h4>
+                    <p>Marvin Gaye</p>
+                </div>
+            </div>
+
+            <!--nirvana-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/incesticide.jpg" width="230" height="230" alt="">
+                </a>
+                <div>
+                    <h4>Incesticide</h4>
+                    <p>Nirvana</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <!--rust-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/rust never sleeps.jpg" width="230" height="230" alt="">
+                </a>
+                <div>
+                    <h4>Rust Never Sleeps</h4>
+                    <p>Neil Young</p>
+                </div>
+            </div>
+
+            <!--Elliot Smith-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/Elliot  Smith - EitherOr.JPG" width="230" height="230" alt="" />
+                </a>
+                <div>
+                    <h4>Either/Or</h4>
+                    <p>Elliot Smith</p>
+                </div>
+            </div>
+
+            <!--FJM-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/FJM - I Love You, Honeybear.jpg" width="230" height="230" alt="" />
+                </a>
+                <div>
+                    <h4>I Love You, Honeybear</h4>
+                    <p>Father John Misty</p>
+                </div>
+            </div>
+
+            <!--gkMc-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/Kendrick - gkMc.jpg" width="230" height="230" alt="" />
+                </a>
+                <div>
+                    <h4>good kid, m.A.A.d city</h4>
+                    <p>Kendrick Lamar</p>
+                </div>
+            </div>
+
+            <!--The White Stripes-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/white stripes.jpg" width="230" height="230" alt="" />
+                </a>
+                <div>
+                    <h4>The White Stripes</h4>
+                    <p>The White Stripes</p>
+                </div>
+            </div>
+
+            <!--les mis-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/Les Mis 10th.jpg" width="230" height="230" alt="" />
+                </a>
+                <div>
+                    <h4>Les Misérables: The Dream Cast in Concert</h4>
+                    <p>10th Anniversary Cast</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <!--everbody knows-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/neil young - everybody knows.jpg" width="230" height="230" alt="" />
+                </a>
+                <div>
+                    <h4>Everybody Knows This is Nowhere</h4>
+                    <p>Neil Young with Crazy Horse</p>
+                </div>
+            </div>
+
+            <!--to pimp a butterfly-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/Kendrick - to pimp a butterfly.jpg" width="230" height="230" alt="" />
+                </a>
+                <div>
+                    <h4>To Pimp a Butterfly</h4>
+                    <p>Kendrick Lamar</p>
+                </div>
+            </div>
+
+            <!--songs for the deaf-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/songs for the deaf.jpg" width="230" height="230" alt="" />
+                </a>
+                <div>
+                    <h4>Songs for the Deaf</h4>
+                    <p>Queens of the Stone Age</p>
+                </div>
+            </div>
+
+            <!--alice-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/Alice in Chains - MTV Unplugged.jpg" width="230" height="230" alt="" />
+                </a>
+                <div>
+                    <h4>MTV Unplugged</h4>
+                    <p>Alice in Chains</p>
+                </div>
+            </div>
+
+            <!--book of mormon-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/The Book of Mormon.jpg" width="230" height="230" alt="" />
+                </a>
+                <div>
+                    <h4>The Book of Mormon</h4>
+                    <p>Original Broadway Cast</p>
+                </div>
+            </div>
+
+            <!--the KEYS-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/The Black Keys - Brothers.jpeg" width="230" height="230" alt="" />
+                </a>
+                <div>
+                    <h4>Brothers</h4>
+                    <p>The Black Keys</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <!--white stripes-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/white blood cells.jpg" width="230" height="230" alt="" />
+                </a>
+                <div>
+                    <h4>White Blood Cells</h4>
+                    <p>The White Stripes</p>
+                </div>
+            </div>
+
+            <!--robert johnson-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/the complete recordings.jpg" width="230" height="230" alt="" />
+                </a>
+                <div>
+                    <h4>The Complete Recordings</h4>
+                    <p>Robert Johnson</p>
+                </div>
+            </div>
+
+            <!--21 pilots-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/vessel.jpg" width="230" height="230" alt="" />
+                </a>
+                <div>
+                    <h4>Vessel</h4>
+                    <p>Twenty One Pilots</p>
+                </div>
+            </div>
+
+            <!--de stijl-->
+            <div class="col-sm-2 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="./assets/img/de stijl.jpg" width="230" height="230" alt="" />
+                </a>
+                <div>
+                    <h4>De Stijl</h4>
+                    <p>The White Stripes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./app/angular.min.js"></script>
+    <script src="./app/mainApp.js"></script>
+    <script src="./app/event/eventModule.js"></script>
+    <script type="text/javascript">
+        console.log("angular object", angular);
+    </script>
+
+</body>
+</html>

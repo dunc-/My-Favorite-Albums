@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Favorite Albums</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/portfolio-item.css" rel="stylesheet">
+</head>
+
+<body ng-app="mainApp" ng-controller="AlbumCtrl as album">
+
+    <!-- Navigation header-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <!--For mobile displays-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">{{::album.title}}</a>
+            </div>
+
+            <!-- Get those links up there -->
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="index.html">Albums</a>
+                    </li>
+                    <li>
+                        <a href="reasoning.html">Reasoning</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Actual Page Content-->
+    <div class="container-fluid">
+        <!--Heading of the group of albums with the featured album-->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Featured Album
+                    <small id="date"></small>
+                    <script type="text/javascript">
+                        var d = new Date();
+                        document.getElementById("date").innerHTML = "As of ".small() + d.toUTCString().small();
+                    </script>
+                </h1>
+            </div>
+
+        <!--Featured Album-->
+            <div class="col-md-4" ng-controller="AlbumTabCtrl as albumtab">
+                <img class="img-responsive" src="./assets/img/Weezer - Weezer.jpg" width="500" height="500">
+		    </div>
+		    <div ng-controller="AlbumTabCtrl as albumtab" class="col-md-3">
+			    <h3>{{album.albums[album.index].title}}</h3>
+			    <p>{{album.albums[album.index].description}}</p>
+		    </div>
+        </div>
+
+        <!-- All the other albums -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">All of the Albums <small>(in no particular order)</small> <input type="text" ng-model="album.search" placeholder="Search by Album"></h2>
+                <div class="col-lg-12"></div>
+            </div>
+
+            <div ng-repeat="item in album.albums | searchAlbums:album.search" class="col-sm-2">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" ng-src="./assets/img/{{item.imgName}}" width="230" height="230" alt="">
+                </a>
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Designed by Chris Duncan</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="./app/angular.min.js"></script>
+    <script src="./app/mainApp.js"></script>
+    <script src="./app/event/eventModule.js"></script>
+    <script type="text/javascript">
+        console.log("angular object", angular);
+    </script>
+</body>
+</html>
